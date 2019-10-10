@@ -1,0 +1,50 @@
+#!/usr/bin/env node
+"use strict";
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.commonCapConstraints = exports.WindowsDriver = void 0;
+
+require("source-map-support/register");
+
+var _yargs = _interopRequireDefault(require("yargs"));
+
+var _asyncbox = require("asyncbox");
+
+var _server = require("./lib/server");
+
+var driver = _interopRequireWildcard(require("./lib/driver"));
+
+var caps = _interopRequireWildcard(require("./lib/desired-caps"));
+
+const {
+  WindowsDriver
+} = driver;
+exports.WindowsDriver = WindowsDriver;
+const {
+  desiredCapConstraints: commonCapConstraints
+} = caps;
+exports.commonCapConstraints = commonCapConstraints;
+const DEFAULT_HOST = 'localhost';
+const DEFAULT_PORT = 4723;
+
+async function main() {
+  let port = _yargs.default.argv.port || DEFAULT_PORT;
+  let address = _yargs.default.argv.address || DEFAULT_HOST;
+  return await (0, _server.startServer)(port, address);
+}
+
+if (require.main === module) {
+  (0, _asyncbox.asyncify)(main);
+}
+
+var _default = WindowsDriver;
+exports.default = _default;require('source-map-support').install();
+
+
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluZGV4LmpzIl0sIm5hbWVzIjpbIldpbmRvd3NEcml2ZXIiLCJkcml2ZXIiLCJkZXNpcmVkQ2FwQ29uc3RyYWludHMiLCJjb21tb25DYXBDb25zdHJhaW50cyIsImNhcHMiLCJERUZBVUxUX0hPU1QiLCJERUZBVUxUX1BPUlQiLCJtYWluIiwicG9ydCIsInlhcmdzIiwiYXJndiIsImFkZHJlc3MiLCJyZXF1aXJlIiwibW9kdWxlIl0sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7QUFHQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFHQSxNQUFNO0FBQUVBLEVBQUFBO0FBQUYsSUFBb0JDLE1BQTFCOztBQUNBLE1BQU07QUFBRUMsRUFBQUEscUJBQXFCLEVBQUVDO0FBQXpCLElBQWtEQyxJQUF4RDs7QUFFQSxNQUFNQyxZQUFZLEdBQUcsV0FBckI7QUFDQSxNQUFNQyxZQUFZLEdBQUcsSUFBckI7O0FBRUEsZUFBZUMsSUFBZixHQUF1QjtBQUNyQixNQUFJQyxJQUFJLEdBQUdDLGVBQU1DLElBQU4sQ0FBV0YsSUFBWCxJQUFtQkYsWUFBOUI7QUFDQSxNQUFJSyxPQUFPLEdBQUdGLGVBQU1DLElBQU4sQ0FBV0MsT0FBWCxJQUFzQk4sWUFBcEM7QUFDQSxTQUFPLE1BQU0seUJBQVlHLElBQVosRUFBa0JHLE9BQWxCLENBQWI7QUFDRDs7QUFFRCxJQUFJQyxPQUFPLENBQUNMLElBQVIsS0FBaUJNLE1BQXJCLEVBQTZCO0FBQzNCLDBCQUFTTixJQUFUO0FBQ0Q7O2VBSWNQLGEiLCJzb3VyY2VzQ29udGVudCI6WyIjIS91c3IvYmluL2VudiBub2RlXHJcbi8vIHRyYW5zcGlsZTptYWluXHJcblxyXG5pbXBvcnQgeWFyZ3MgZnJvbSAneWFyZ3MnO1xyXG5pbXBvcnQgeyBhc3luY2lmeSB9IGZyb20gJ2FzeW5jYm94JztcclxuaW1wb3J0IHsgc3RhcnRTZXJ2ZXIgfSBmcm9tICcuL2xpYi9zZXJ2ZXInO1xyXG5pbXBvcnQgKiBhcyBkcml2ZXIgZnJvbSAnLi9saWIvZHJpdmVyJztcclxuaW1wb3J0ICogYXMgY2FwcyBmcm9tICcuL2xpYi9kZXNpcmVkLWNhcHMnO1xyXG5cclxuXHJcbmNvbnN0IHsgV2luZG93c0RyaXZlciB9ID0gZHJpdmVyO1xyXG5jb25zdCB7IGRlc2lyZWRDYXBDb25zdHJhaW50czogY29tbW9uQ2FwQ29uc3RyYWludHMgfSA9IGNhcHM7XHJcblxyXG5jb25zdCBERUZBVUxUX0hPU1QgPSAnbG9jYWxob3N0JztcclxuY29uc3QgREVGQVVMVF9QT1JUID0gNDcyMztcclxuXHJcbmFzeW5jIGZ1bmN0aW9uIG1haW4gKCkge1xyXG4gIGxldCBwb3J0ID0geWFyZ3MuYXJndi5wb3J0IHx8IERFRkFVTFRfUE9SVDtcclxuICBsZXQgYWRkcmVzcyA9IHlhcmdzLmFyZ3YuYWRkcmVzcyB8fCBERUZBVUxUX0hPU1Q7XHJcbiAgcmV0dXJuIGF3YWl0IHN0YXJ0U2VydmVyKHBvcnQsIGFkZHJlc3MpO1xyXG59XHJcblxyXG5pZiAocmVxdWlyZS5tYWluID09PSBtb2R1bGUpIHtcclxuICBhc3luY2lmeShtYWluKTtcclxufVxyXG5cclxuZXhwb3J0IHsgV2luZG93c0RyaXZlciwgY29tbW9uQ2FwQ29uc3RyYWludHMgfTtcclxuXHJcbmV4cG9ydCBkZWZhdWx0IFdpbmRvd3NEcml2ZXI7XHJcbiJdLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiLi4ifQ==
